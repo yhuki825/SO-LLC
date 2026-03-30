@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="合同会社 蒼（SO LLC.）は広島県福山市を拠点に、エアコンのクリーニング・取付・修理を行う専門会社です。" />
+  <title>合同会社 蒼 | エアコンクリーニング・取付・修理 | 広島県福山市</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Noto Sans JP"', 'sans-serif'],
+            serif: ['"Noto Serif JP"', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* ナビゲーション スクロール前後の切り替え */
+    #navbar {
+      transition: background-color 0.3s, padding 0.3s, box-shadow 0.3s;
+    }
+    #navbar.scrolled {
+      background-color: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      padding-top: 0.75rem;
+      padding-bottom: 0.75rem;
+    }
+    #navbar:not(.scrolled) {
+      background-color: transparent;
+      padding-top: 1.25rem;
+      padding-bottom: 1.25rem;
+    }
+
+    /* ロゴテキスト */
+    #navbar:not(.scrolled) .nav-company-name { color: #fff; }
+    #navbar.scrolled .nav-company-name { color: #1e3a5f; }
+    #navbar:not(.scrolled) .nav-company-sub { color: #bfdbfe; }
+    #navbar.scrolled .nav-company-sub { color: #64748b; }
+
+    /* デスクトップナビリンク */
+    #navbar:not(.scrolled) .nav-link { color: #fff; }
+    #navbar.scrolled .nav-link { color: #334155; }
+    .nav-link:hover { color: #3b82f6 !important; }
+
+    /* ハンバーガーアイコン */
+    #navbar:not(.scrolled) #menu-icon { color: #fff; }
+    #navbar.scrolled #menu-icon { color: #1e293b; }
+
+    /* モバイルメニュー */
+    #mobile-menu {
+      display: none;
+    }
+    #mobile-menu.open {
+      display: flex;
+    }
+
+    /* バウンスアニメーション */
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0) translateX(-50%); }
+      50% { transform: translateY(-12px) translateX(-50%); }
+    }
+    .scroll-bounce {
+      animation: bounce 1.6s infinite;
+    }
+
+    /* サービスカード 画像フォールバック */
+    .service-img {
+      background-color: #dbeafe;
+    }
+
+    /* フローカード ホバー */
+    .flow-card:hover {
+      background-color: #1d4ed8;
+    }
+    .flow-card:hover .flow-step-num {
+      opacity: 0.6;
+    }
+
+    /* フィーチャーカード ホバー */
+    .feature-card:hover {
+      box-shadow: 0 20px 40px rgba(0,0,0,0.10);
+    }
+
+    /* CTA ボタン ホバー */
+    .cta-phone-btn:hover {
+      transform: scale(1.05);
+    }
+
+    /* 区切り線 */
+    .section-divider {
+      width: 5rem;
+      height: 4px;
+      background-color: #2563eb;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-slate-50 text-slate-900 font-sans">
+
+  <!-- ========== ナビゲーション ========== -->
+  <nav id="navbar" class="fixed w-full z-50">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+
+      <!-- ロゴ -->
+      <a href="#home" class="flex items-center gap-2">
+        <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center shrink-0">
+          <span class="text-white font-bold text-2xl">蒼</span>
+        </div>
+        <div class="flex flex-col leading-none">
+          <span class="nav-company-name font-bold text-xl leading-snug transition-colors duration-300">合同会社 蒼</span>
+          <span class="nav-company-sub text-xs transition-colors duration-300">SO LLC.</span>
+        </div>
+      </a>
+
+      <!-- デスクトップメニュー -->
+      <div class="hidden md:flex items-center gap-6 lg:gap-8">
+        <a href="#home"     class="nav-link text-sm font-medium transition-colors duration-200">ホーム</a>
+        <a href="#features" class="nav-link text-sm font-medium transition-colors duration-200">強み</a>
+        <a href="#services" class="nav-link text-sm font-medium transition-colors duration-200">サービス内容</a>
+        <a href="#pricing"  class="nav-link text-sm font-medium transition-colors duration-200">料金目安</a>
+        <a href="#flow"     class="nav-link text-sm font-medium transition-colors duration-200">施工の流れ</a>
+        <a href="#company"  class="nav-link text-sm font-medium transition-colors duration-200">会社概要</a>
+        <a href="tel:084-XXX-XXXX"
+           class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-full text-sm font-bold flex items-center gap-2 transition-colors duration-200 whitespace-nowrap">
+          <i data-lucide="phone" class="w-4 h-4"></i> お電話で相談
+        </a>
+      </div>
+
+      <!-- モバイル ハンバーガーボタン -->
+      <button id="menu-toggle" class="md:hidden p-2 transition-colors duration-300" aria-label="メニューを開く">
+        <i id="menu-icon" data-lucide="menu" class="w-6 h-6 transition-colors duration-300"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ========== モバイルメニュー オーバーレイ ========== -->
+  <div id="mobile-menu"
+       class="fixed inset-0 bg-white z-[60] flex-col items-center justify-center gap-8 text-2xl font-bold text-slate-800">
+    <button id="menu-close" class="absolute top-6 right-6 p-2" aria-label="メニューを閉じる">
+      <i data-lucide="x" class="w-8 h-8"></i>
+    </button>
+    <a href="#home"     class="mobile-nav-link hover:text-blue-600 transition-colors">ホーム</a>
+    <a href="#features" class="mobile-nav-link hover:text-blue-600 transition-colors">強み</a>
+    <a href="#services" class="mobile-nav-link hover:text-blue-600 transition-colors">サービス内容</a>
+    <a href="#pricing"  class="mobile-nav-link hover:text-blue-600 transition-colors">料金目安</a>
+    <a href="#flow"     class="mobile-nav-link hover:text-blue-600 transition-colors">施工の流れ</a>
+    <a href="#company"  class="mobile-nav-link hover:text-blue-600 transition-colors">会社概要</a>
+    <a href="tel:084-XXX-XXXX"
+       class="mobile-nav-link flex items-center gap-3 text-blue-600 border-2 border-blue-600 px-6 py-3 rounded-full hover:bg-blue-50 transition-colors">
+      <i data-lucide="phone" class="w-6 h-6"></i> 084-XXX-XXXX
+    </a>
+  </div>
+
+  <!-- ========== ヒーローセクション ========== -->
+  <section id="home" class="relative h-screen flex items-center overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <div class="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-transparent z-10"></div>
+      <img
+        src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80&w=2000"
+        alt="エアコンのメンテナンス風景"
+        class="w-full h-full object-cover"
+      />
+    </div>
+
+    <div class="container mx-auto px-4 relative z-20 text-white">
+      <div class="max-w-2xl">
+        <span class="inline-block bg-blue-600 text-white px-4 py-1 rounded text-sm font-bold mb-4">
+          広島県福山市を拠点に活動
+        </span>
+        <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+          心地よい空気で、<br />
+          <span class="text-blue-400 font-serif italic text-4xl md:text-6xl">豊かな暮らしを</span>。
+        </h1>
+        <p class="text-lg md:text-xl text-blue-50 mb-8 leading-relaxed">
+          合同会社 蒼は、エアコンのクリーニング、取付、修理のスペシャリスト集団です。
+          技術と誠実さで、お客様の快適な空間づくりを徹底サポートします。
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="#services"
+             class="bg-white text-blue-900 px-8 py-4 rounded-lg font-bold text-center hover:bg-blue-50 transition-colors flex items-center justify-center gap-2">
+            サービスを見る <i data-lucide="arrow-right" class="w-5 h-5"></i>
+          </a>
+          <a href="#company"
+             class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-center hover:bg-white/10 transition-colors">
+            会社を知る
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- スクロール誘導 -->
+    <div class="absolute bottom-10 left-1/2 z-20 scroll-bounce">
+      <i data-lucide="chevron-down" class="text-white opacity-50 w-8 h-8"></i>
+    </div>
+  </section>
+
+  <!-- ========== 実績ハイライト ========== -->
+  <section class="bg-white py-12 border-b border-slate-100">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div>
+          <p class="text-blue-600 text-3xl font-bold mb-1">福山市</p>
+          <p class="text-slate-500 text-sm">地域密着対応</p>
+        </div>
+        <div>
+          <p class="text-blue-600 text-3xl font-bold mb-1">100%</p>
+          <p class="text-slate-500 text-sm">完全自社施工</p>
+        </div>
+        <div>
+          <p class="text-blue-600 text-3xl font-bold mb-1">即日〜</p>
+          <p class="text-slate-500 text-sm">スピード訪問</p>
+        </div>
+        <div>
+          <p class="text-blue-600 text-3xl font-bold mb-1">安心</p>
+          <p class="text-slate-500 text-sm">万全のアフターケア</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 選ばれる理由（強み） ========== -->
+  <section id="features" class="py-24">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-blue-900 mb-4">選ばれる3つの理由</h2>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 lg:gap-12">
+
+        <!-- 理由1 -->
+        <div class="feature-card bg-white p-10 rounded-2xl shadow-sm border border-slate-100 text-center transition-shadow duration-300">
+          <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-6">
+            <i data-lucide="shield-check" class="text-blue-600 w-8 h-8"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-4">誠実な価格と対応</h3>
+          <p class="text-slate-600 leading-relaxed">
+            事前のお見積りから追加料金なし。<br>初めての方でも安心してご依頼いただけるよう、明朗会計を徹底しています。
+          </p>
+        </div>
+
+        <!-- 理由2 -->
+        <div class="feature-card bg-white p-10 rounded-2xl shadow-sm border border-slate-100 text-center transition-shadow duration-300">
+          <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-6">
+            <i data-lucide="check-circle" class="text-blue-600 w-8 h-8"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-4">確かな技術力</h3>
+          <p class="text-slate-600 leading-relaxed">
+            最新機種から旧型まで幅広く対応。メーカーを問わず、最適な清掃・修理方法をご提案いたします。
+          </p>
+        </div>
+
+        <!-- 理由3 -->
+        <div class="feature-card bg-white p-10 rounded-2xl shadow-sm border border-slate-100 text-center transition-shadow duration-300">
+          <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-6">
+            <i data-lucide="clock" class="text-blue-600 w-8 h-8"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-4">地域密着の機動力</h3>
+          <p class="text-slate-600 leading-relaxed">
+            福山市を中心に近隣エリアへ迅速にお伺いします。<br>エアコンの急な故障など、困った時にはすぐに駆けつけます。
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 事業内容（サービス） ========== -->
+  <section id="services" class="py-24 bg-slate-100">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row items-end justify-between mb-16 gap-6">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold text-blue-900 mb-4">事業内容</h2>
+          <p class="text-slate-600 max-w-lg">
+            エアコンの寿命を延ばし、電気代を抑え、<br>清潔な空気を守るためのトータルケアサービスを提供しています。
+          </p>
+        </div>
+        <div class="hidden md:block w-32 h-1 bg-blue-600 shrink-0"></div>
+      </div>
+
+      <div class="grid gap-8">
+
+        <!-- サービス1: エアコンクリーニング -->
+        <div class="bg-white rounded-3xl overflow-hidden shadow-sm flex flex-col md:flex-row border border-slate-200">
+          <div class="md:w-1/3 service-img">
+            <img
+              src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&q=80&w=800"
+              alt="エアコンクリーニングの様子"
+              class="w-full h-full object-cover min-h-[250px]"
+              onerror="this.style.display='none'"
+            />
+          </div>
+          <div class="md:w-2/3 p-8 md:p-12">
+            <div class="flex items-center gap-4 mb-4">
+              <i data-lucide="droplets" class="text-blue-500 w-8 h-8 shrink-0"></i>
+              <h3 class="text-2xl font-bold text-blue-900">エアコンクリーニング</h3>
+            </div>
+            <p class="text-slate-600 mb-8 text-lg leading-relaxed">
+              内部に潜むカビやホコリを徹底洗浄。高圧洗浄機を用いて、電気効率の改善とアレルギー対策を実現します。
+            </p>
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div class="flex items-center gap-2 text-slate-700">
+                <i data-lucide="check-circle" class="text-blue-500 w-4 h-4 shrink-0"></i>
+                <span>アルミフィン洗浄</span>
+              </div>
+              <div class="flex items-center gap-2 text-slate-700">
+                <i data-lucide="check-circle" class="text-blue-500 w-4 h-4 shrink-0"></i>
+                <span>ファン・吹き出し口清掃</span>
+              </div>
+              <div class="flex items-center gap-2 text-slate-700">
+                <i data-lucide="check-circle" class="text-blue-500 w-4 h-4 shrink-0"></i>
+                <span>外装パネル・フィルター洗浄</span>
+              </div>
+              <div class="flex items-center gap-2 text-slate-700">
+                <i data-lucide="check-circle" class="text-blue-500 w-4 h-4 shrink-0"></i>
+                <span>防カビ・抗菌コート（オプション）</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- サービス2: 取付・移設工事 -->
+        <div class="bg-white rounded-3xl overflow-hidden shadow-sm flex flex-col md:flex-row border border-slate-200">
+          <div class="md:w-1/3 service-img">
+            <img
+              src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80&w=800"
+              alt="エアコン取付工事の様子"
+              class="w-full h-full object-cover min-h-[250px]"
+              onerror="this.style.display='none'"
+            />
+          </div>
+          <div class="md:w-2/3 p-8 md:p-12">
+            <div class="flex items-center gap-4 mb-4">
+              <i data-lucide="wrench" class="text-blue-500 w-8 h-8 shrink-0"></i>
+              <h3 class="text-2xl font-bold text-blue-900">取付・移設工事</h3>
+            </div>
+            <p class="text-slate-600 mb-8 text-lg leading-relaxed">
+              引越しに伴う移設や、量販店で購入された新品の取付まで幅広く対応。丁寧な真空引きと配管処理を行います。
+            </p>
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div class="flex items-center gap-2 text-slate-700">
+                <i data-lucide="check-circle" class="text-blue-500 w-4 h-4 shrink-0"></i>
+                <span>新規取付工事</span>
+              </div>
+              <div class="flex items-center gap-2 text-slate-700">
+                <i data-lucide="check-circle" class="text-blue-500 w-4 h-4 shrink-0"></i>
+                <span>移設・取り外し</span>
+              </div>
+              <div class="flex items-center gap-2 text-slate-700">
+                <i data-lucide="check-circle" class="text-blue-500 w-4 h-4 shrink-0"></i>
+                <span>化粧カバー施工</span>
+              </div>
+              <div class="flex items-center gap-2 text-slate-700">
+                <i data-lucide="check-circle" class="text-blue-500 w-4 h-4 shrink-0"></i>
+                <span>隠ぺい配管対応</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- サービス3: 修理・メンテナンス -->
+        <div class="bg-white rounded-3xl overflow-hidden shadow-sm flex flex-col md:flex-row border border-slate-200">
+          <div class="md:w-1/3 service-img">
+            <img
+              src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&q=80&w=800"
+              alt="エアコン修理・メンテナンスの様子"
+              class="w-full h-full object-cover min-h-[250px]"
+              onerror="this.style.display='none'"
+            />
+          </div>
+          <div class="md:w-2/3 p-8 md:p-12">
+            <div class="flex items-center gap-4 mb-4">
+              <i data-lucide="wind" class="text-blue-500 w-8 h-8 shrink-0"></i>
+              <h3 class="text-2xl font-bold text-blue-900">修理・メンテナンス</h3>
+            </div>
+            <p class="text-slate-600 mb-8 text-lg leading-relaxed">
+              「冷えが悪い」「異音がする」「水漏れ」など。迅速な原因究明と確実な修理で、快適な室温を取り戻します。
+            </p>
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div class="flex items-center gap-2 text-slate-700">
+                <i data-lucide="check-circle" class="text-blue-500 w-4 h-4 shrink-0"></i>
+                <span>冷媒ガス補充</span>
+              </div>
+              <div class="flex items-center gap-2 text-slate-700">
+                <i data-lucide="check-circle" class="text-blue-500 w-4 h-4 shrink-0"></i>
+                <span>ドレン詰まり解消</span>
+              </div>
+              <div class="flex items-center gap-2 text-slate-700">
+                <i data-lucide="check-circle" class="text-blue-500 w-4 h-4 shrink-0"></i>
+                <span>基板・ファンモーター交換</span>
+              </div>
+              <div class="flex items-center gap-2 text-slate-700">
+                <i data-lucide="check-circle" class="text-blue-500 w-4 h-4 shrink-0"></i>
+                <span>コンプレッサー点検</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 料金目安 ========== -->
+  <section id="pricing" class="py-24">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-blue-900 mb-4">料金目安</h2>
+        <p class="text-slate-500 italic text-sm">※記載はすべて税込価格です。正式な金額はお見積り時に提示いたします。</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+
+        <!-- クリーニング料金 -->
+        <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
+          <div class="bg-blue-600 p-4 text-white font-bold text-center text-lg">
+            エアコンクリーニング
+          </div>
+          <div class="p-6 divide-y divide-slate-100">
+            <div class="py-4 flex justify-between items-center">
+              <span class="text-slate-700">通常壁掛けタイプ</span>
+              <span class="font-bold text-xl text-slate-900">¥11,000〜</span>
+            </div>
+            <div class="py-4 flex justify-between items-center">
+              <span class="text-slate-700">お掃除機能付き</span>
+              <span class="font-bold text-xl text-slate-900">¥18,700〜</span>
+            </div>
+            <div class="py-4 flex justify-between items-center">
+              <span class="text-slate-700">業務用天井カセット</span>
+              <span class="font-bold text-xl text-slate-900">¥27,500〜</span>
+            </div>
+            <div class="py-4 flex justify-between items-center">
+              <span class="text-slate-700">室外機洗浄</span>
+              <span class="font-bold text-xl text-slate-900">¥3,300〜</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 取付・修理料金 -->
+        <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
+          <div class="bg-slate-800 p-4 text-white font-bold text-center text-lg">
+            取付・修理・点検
+          </div>
+          <div class="p-6 divide-y divide-slate-100">
+            <div class="py-4 flex justify-between items-center">
+              <span class="text-slate-700">新品取付工事（2.2kW〜）</span>
+              <span class="font-bold text-xl text-slate-900">¥16,500〜</span>
+            </div>
+            <div class="py-4 flex justify-between items-center">
+              <span class="text-slate-700">取外し・回収処分</span>
+              <span class="font-bold text-xl text-slate-900">¥6,600〜</span>
+            </div>
+            <div class="py-4 flex justify-between items-center">
+              <span class="text-slate-700">冷媒ガス補充</span>
+              <span class="font-bold text-xl text-slate-900">¥13,200〜</span>
+            </div>
+            <div class="py-4 flex justify-between items-center">
+              <span class="text-slate-700">出張点検・故障診断</span>
+              <span class="font-bold text-xl text-slate-900">¥5,500〜</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 割引案内 -->
+      <div class="mt-12 bg-blue-50 p-6 rounded-xl max-w-5xl mx-auto border border-blue-100">
+        <h4 class="font-bold text-blue-900 mb-2 flex items-center gap-2">
+          <i data-lucide="shield-check" class="w-5 h-5 text-blue-600"></i>
+          複数台割引・セット割引
+        </h4>
+        <p class="text-slate-700 text-sm leading-relaxed">
+          2台目以降のクリーニングや、取付とあわせての処分など、複数をまとめてご依頼いただく場合は特別割引を適用させていただきます。<br>お気軽にご相談ください。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ご依頼の流れ ========== -->
+  <section id="flow" class="py-24 bg-blue-900 text-white overflow-hidden relative">
+    <!-- 背景装飾 -->
+    <div class="absolute top-0 right-0 opacity-10 pointer-events-none select-none">
+      <i data-lucide="wind" style="width:400px;height:400px;"></i>
+    </div>
+
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">ご依頼の流れ</h2>
+        <div class="w-20 h-1 bg-blue-400 mx-auto"></div>
+      </div>
+
+      <div class="grid md:grid-cols-4 gap-6 relative">
+
+        <!-- STEP 01 -->
+        <div class="relative group">
+          <div class="flow-card bg-blue-800 p-8 rounded-2xl border border-blue-700 h-full transition-colors duration-300">
+            <span class="flow-step-num text-4xl font-black text-blue-400/30 mb-4 block italic transition-opacity duration-300">01</span>
+            <h3 class="text-xl font-bold mb-3">お問い合わせ</h3>
+            <p class="text-blue-100 text-sm leading-relaxed">
+              お電話またはメールにて、症状やご希望のメニューをお伝えください。
+            </p>
+          </div>
+          <div class="hidden md:flex absolute top-1/2 -right-3 -translate-y-1/2 z-20 items-center justify-center">
+            <i data-lucide="arrow-right" class="text-blue-400 w-5 h-5"></i>
+          </div>
+        </div>
+
+        <!-- STEP 02 -->
+        <div class="relative group">
+          <div class="flow-card bg-blue-800 p-8 rounded-2xl border border-blue-700 h-full transition-colors duration-300">
+            <span class="flow-step-num text-4xl font-black text-blue-400/30 mb-4 block italic transition-opacity duration-300">02</span>
+            <h3 class="text-xl font-bold mb-3">お見積り・日程調整</h3>
+            <p class="text-blue-100 text-sm leading-relaxed">
+              内容を確認し、概算費用と訪問可能日時をご案内いたします。
+            </p>
+          </div>
+          <div class="hidden md:flex absolute top-1/2 -right-3 -translate-y-1/2 z-20 items-center justify-center">
+            <i data-lucide="arrow-right" class="text-blue-400 w-5 h-5"></i>
+          </div>
+        </div>
+
+        <!-- STEP 03 -->
+        <div class="relative group">
+          <div class="flow-card bg-blue-800 p-8 rounded-2xl border border-blue-700 h-full transition-colors duration-300">
+            <span class="flow-step-num text-4xl font-black text-blue-400/30 mb-4 block italic transition-opacity duration-300">03</span>
+            <h3 class="text-xl font-bold mb-3">施工・確認</h3>
+            <p class="text-blue-100 text-sm leading-relaxed">
+              プロの技術で丁寧に作業。完了後、動作確認を一緒に行います。
+            </p>
+          </div>
+          <div class="hidden md:flex absolute top-1/2 -right-3 -translate-y-1/2 z-20 items-center justify-center">
+            <i data-lucide="arrow-right" class="text-blue-400 w-5 h-5"></i>
+          </div>
+        </div>
+
+        <!-- STEP 04 -->
+        <div class="relative group">
+          <div class="flow-card bg-blue-800 p-8 rounded-2xl border border-blue-700 h-full transition-colors duration-300">
+            <span class="flow-step-num text-4xl font-black text-blue-400/30 mb-4 block italic transition-opacity duration-300">04</span>
+            <h3 class="text-xl font-bold mb-3">お支払い</h3>
+            <p class="text-blue-100 text-sm leading-relaxed">
+              作業完了後に現金または各種決済にてお支払い。アフターフォローも万全です。
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 会社概要 ========== -->
+  <section id="company" class="py-24">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-16 items-start">
+
+        <!-- 左カラム: 会社情報 -->
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold text-blue-900 mb-8">会社概要</h2>
+          <div class="space-y-6">
+            <div class="flex border-b border-slate-200 pb-4">
+              <span class="w-32 font-bold text-slate-500 shrink-0">会社名</span>
+              <span class="text-slate-800">合同会社 蒼（SO LLC.）</span>
+            </div>
+            <div class="flex border-b border-slate-200 pb-4">
+              <span class="w-32 font-bold text-slate-500 shrink-0">代表社員</span>
+              <span class="text-slate-800">森時 博正（Moritoki Hiromasa）</span>
+            </div>
+            <div class="flex border-b border-slate-200 pb-4">
+              <span class="w-32 font-bold text-slate-500 shrink-0">所在地</span>
+              <div class="text-slate-800">
+                <p>〒720-0013</p>
+                <p>広島県福山市千田町千田1315</p>
+              </div>
+            </div>
+            <div class="flex border-b border-slate-200 pb-4">
+              <span class="w-32 font-bold text-slate-500 shrink-0">事業内容</span>
+              <div class="text-slate-800 space-y-1">
+                <p>・エアコンクリーニング（家庭用・業務用）</p>
+                <p>・エアコン取付・移設工事</p>
+                <p>・エアコン修理・メンテナンス</p>
+              </div>
+            </div>
+            <div class="flex border-b border-slate-200 pb-4">
+              <span class="w-32 font-bold text-slate-500 shrink-0">対応エリア</span>
+              <span class="text-slate-800">福山市、府中市、尾道市、神石高原町、井原市、笠岡市 他</span>
+            </div>
+          </div>
+
+          <!-- 代表メッセージ -->
+          <div class="mt-12 p-8 bg-white shadow-sm border border-slate-100 rounded-2xl italic text-slate-600 leading-relaxed relative">
+            <div class="absolute -top-4 -left-2 text-6xl text-blue-100 font-serif leading-none select-none">"</div>
+            <p>
+              「蒼（そう）」という社名には、抜けるような青空のように、清潔で心地よい空気を提供したいという想いを込めています。エアコンのトラブルは生活の質に直結します。地元の皆様が一年中、快適に過ごせるよう、一つひとつの現場を丁寧に、責任を持って施工させていただきます。
+            </p>
+          </div>
+        </div>
+
+        <!-- 右カラム: 画像・地図 -->
+        <div class="space-y-8">
+          <div class="rounded-3xl overflow-hidden shadow-lg h-[300px] border-4 border-white">
+            <img
+              src="https://images.unsplash.com/photo-1527192491265-7e15c55b1ed2?auto=format&fit=crop&q=80&w=1200"
+              alt="オフィス風景イメージ"
+              class="w-full h-full object-cover"
+            />
+          </div>
+
+          <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
+            <h3 class="font-bold text-blue-900 mb-6 flex items-center gap-2">
+              <i data-lucide="map-pin" class="text-blue-500 w-5 h-5"></i>
+              アクセス
+            </h3>
+            <div class="aspect-video w-full bg-slate-200 rounded-xl overflow-hidden relative">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3277.3!2d133.3833!3d34.4833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z5bqD5bGx55S677yI5bqD5bGx55S677yJ!5e0!3m2!1sja!2sjp!4v1700000000000!5m2!1sja!2sjp"
+                width="100%"
+                height="100%"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="合同会社 蒼 所在地マップ"
+                class="absolute inset-0 w-full h-full"
+              ></iframe>
+              <!-- マップ読み込み失敗時のフォールバック -->
+              <noscript>
+                <div class="absolute inset-0 flex flex-col items-center justify-center text-slate-500 p-4 text-center">
+                  <p class="font-bold mb-2 underline">福山市千田町千田1315</p>
+                  <p class="text-xs">
+                    国道182号線からほど近く、アクセス良好です。<br />
+                    ※現場へ出ていることが多いため、ご来社の際は事前にお電話をお願いいたします。
+                  </p>
+                </div>
+              </noscript>
+            </div>
+            <p class="text-xs text-slate-500 mt-3 leading-relaxed">
+              ※現場へ出ていることが多いため、ご来社の際は事前にお電話をお願いいたします。
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CTA（お問い合わせ誘導） ========== -->
+  <section class="bg-gradient-to-br from-blue-600 to-blue-800 py-20 text-white text-center">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-5xl font-bold mb-6">エアコンのことなら、プロにお任せ。</h2>
+      <p class="text-xl text-blue-100 mb-10 max-w-2xl mx-auto leading-relaxed">
+        汚れの悩み、不調、新しいエアコンの設置など。<br class="hidden md:block" />
+        どんな些細なことでも、まずはお気軽にご相談ください。
+      </p>
+      <div class="flex flex-col md:flex-row justify-center items-center gap-6">
+        <a href="tel:084-XXX-XXXX"
+           class="cta-phone-btn w-full md:w-auto bg-white text-blue-900 px-10 py-5 rounded-full font-bold text-2xl flex items-center justify-center gap-4 transition-transform duration-200 shadow-lg">
+          <i data-lucide="phone" class="w-7 h-7"></i> 084-XXX-XXXX
+        </a>
+        <div class="text-left">
+          <p class="text-sm font-bold opacity-80 uppercase tracking-widest">受付時間</p>
+          <p class="text-lg font-bold">9:00 〜 18:00（年中無休）</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== フッター ========== -->
+  <footer class="bg-slate-900 text-slate-400 py-12">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row justify-between items-start gap-10 mb-12">
+
+        <!-- ブランド -->
+        <div>
+          <div class="flex items-center gap-2 mb-4">
+            <div class="w-8 h-8 bg-blue-600 rounded flex items-center justify-center shrink-0">
+              <span class="text-white font-bold text-lg">蒼</span>
+            </div>
+            <span class="text-white font-bold text-xl">合同会社 蒼</span>
+          </div>
+          <p class="text-sm max-w-xs leading-relaxed">
+            広島県福山市を中心に活動する、エアコンのクリーニング・取付・修理の専門会社です。
+          </p>
+        </div>
+
+        <!-- フッターリンク -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-8">
+          <div>
+            <h4 class="text-white font-bold mb-4">メニュー</h4>
+            <ul class="space-y-2 text-sm">
+              <li><a href="#home"     class="hover:text-blue-400 transition-colors">ホーム</a></li>
+              <li><a href="#features" class="hover:text-blue-400 transition-colors">強み</a></li>
+              <li><a href="#services" class="hover:text-blue-400 transition-colors">サービス内容</a></li>
+              <li><a href="#pricing"  class="hover:text-blue-400 transition-colors">料金目安</a></li>
+              <li><a href="#flow"     class="hover:text-blue-400 transition-colors">施工の流れ</a></li>
+              <li><a href="#company"  class="hover:text-blue-400 transition-colors">会社概要</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-white font-bold mb-4">サービス</h4>
+            <ul class="space-y-2 text-sm">
+              <li>クリーニング</li>
+              <li>取付・移設</li>
+              <li>故障・修理</li>
+              <li>業務用対応</li>
+            </ul>
+          </div>
+          <div class="col-span-2 sm:col-span-1">
+            <h4 class="text-white font-bold mb-4">お問い合わせ</h4>
+            <p class="text-sm mb-2 flex items-center gap-2">
+              <i data-lucide="phone" class="w-4 h-4 text-blue-400"></i>
+              <a href="tel:084-XXX-XXXX" class="hover:text-blue-400 transition-colors">084-XXX-XXXX</a>
+            </p>
+            <p class="text-sm flex items-center gap-2">
+              <i data-lucide="mail" class="w-4 h-4 text-blue-400"></i>
+              <a href="mailto:info@so-aircon.com" class="hover:text-blue-400 transition-colors">info@so-aircon.com</a>
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-xs">© 2025 SO LLC. All Rights Reserved.</p>
+        <div class="flex gap-6 text-xs">
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== JavaScript ========== -->
+  <script>
+    // Lucide アイコンの初期化
+    lucide.createIcons();
+
+    // ナビゲーション スクロール制御
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // モバイルメニュー 開閉
+    const menuToggle  = document.getElementById('menu-toggle');
+    const menuClose   = document.getElementById('menu-close');
+    const mobileMenu  = document.getElementById('mobile-menu');
+    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+    function openMenu() {
+      mobileMenu.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu() {
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    menuToggle.addEventListener('click', openMenu);
+    menuClose.addEventListener('click', closeMenu);
+    mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+  </script>
+
+</body>
+</html>
